@@ -6,12 +6,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>症状伝えるくん - 受付ページ</title>
   <style>
+    /* アニメーションのkeyframes定義 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttonPop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ページ登場アニメーション */
+body {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* ボタンの登場アニメーション */
+.reserve-button {
+  animation: buttonPop 0.8s ease-out;
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 光のスライドアニメーション */
+.reserve-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  transform: skewX(-20deg);
+  z-index: 0;
+}
+
+.reserve-button:hover::before {
+  animation: shimmer 0.8s forwards;
+}
+
+    
     body {
-      font-family: "Arial", sans-serif;
-      text-align: center;
-      padding: 40px 20px;
-      background-color: #f4f4f4;
-    }
+  background: linear-gradient(-45deg, #f4f4f4, #e0e0e0, #f4f4f4);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
     h1 {
       color: #333;
