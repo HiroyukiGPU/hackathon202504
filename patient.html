@@ -9,39 +9,44 @@
       font-family: sans-serif;
       padding: 20px;
       background-color: #f9f9f9;
+      font-size: 20px; /* 基本の文字サイズを大きく */
     }
 
     h1 {
       text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
     }
 
     form {
       max-width: 800px;
       margin: auto;
       background: white;
-      padding: 20px;
+      padding: 30px;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     label {
       display: block;
-      margin-top: 15px;
+      margin-top: 20px;
       font-weight: bold;
+      font-size: 22px;
     }
 
     input[type="text"], input[type="date"] {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
+      padding: 16px;
+      margin-top: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 20px;
     }
 
     .geo-btn {
-      margin-top: 5px;
-      padding: 8px 12px;
-      font-size: 14px;
+      margin-top: 10px;
+      padding: 12px 16px;
+      font-size: 18px;
       background-color: #007bff;
       color: white;
       border: none;
@@ -69,7 +74,7 @@
       position: absolute;
       top: 8px;
       left: 8px;
-      transform: scale(1.5);
+      transform: scale(1.8);
     }
 
     .image-item img {
@@ -84,13 +89,13 @@
     }
 
     .submit-btn {
-      margin-top: 30px;
-      padding: 12px 24px;
+      margin-top: 40px;
+      padding: 18px 24px;
       background-color: #28a745;
       color: white;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 10px;
+      font-size: 22px;
       cursor: pointer;
       width: 100%;
     }
@@ -102,7 +107,7 @@
 </head>
 <body>
   <h1>患者情報入力フォーム</h1>
-  <form>
+  <form action="Transmission_completed.html" method="GET">
     <label for="name">名前</label>
     <input type="text" id="name" name="name" required />
 
@@ -114,7 +119,6 @@
 
     <label>症状を選択してください（複数選択可）</label>
     <div class="image-grid">
-      <!-- 01〜08.png を直接表示 -->
       <div class="image-item">
         <input type="checkbox" id="img01" name="symptoms" value="01">
         <label for="img01">
@@ -165,7 +169,7 @@
       </div>
     </div>
 
-    <button type="submit" class="submit-btn" helf=Transmission_completed.html>送信する</button>
+    <button type="submit" class="submit-btn">送信する</button>
   </form>
 </body>
 </html>
