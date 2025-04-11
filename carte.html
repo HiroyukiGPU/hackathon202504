@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>カルテ確認</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: #f0f8ff;
+      padding: 20px;
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+
+    .patient-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .patient-button {
+      padding: 18px;
+      font-size: 22px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .patient-button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 600px) {
+      .patient-button {
+        font-size: 20px;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>カルテを確認する患者を選んでください</h1>
+    <div class="patient-list">
+      <form action="Medical.html">
+        <button type="submit" class="patient-button">神山太郎</button>
+      </form>
+      <form action="Medical.html">
+        <button type="submit" class="patient-button">神山丸こ</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
