@@ -108,7 +108,6 @@
 
     <label for="address">住所</label>
     <input type="text" id="address" name="address" placeholder="例：徳島県神山町…" />
-    <button type="button" class="geo-btn" onclick="getLocation()">現在地を入力</button>
 
     <label for="dob">生年月日</label>
     <input type="date" id="dob" name="dob" required />
@@ -168,25 +167,5 @@
 
     <button type="submit" class="submit-btn">送信する</button>
   </form>
-
-  <script>
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, error);
-      } else {
-        alert("このブラウザでは現在地取得がサポートされていません。");
-      }
-
-      function success(position) {
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-        document.getElementById("address").value = `緯度: ${lat.toFixed(5)}, 経度: ${lng.toFixed(5)}`;
-      }
-
-      function error(err) {
-        alert("現在地を取得できませんでした：" + err.message);
-      }
-    }
-  </script>
 </body>
 </html>
