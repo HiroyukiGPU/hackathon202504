@@ -5,11 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>患者情報フォーム</title>
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: sans-serif;
       padding: 20px;
       background-color: #f9f9f9;
-      font-size: 20px; /* 基本の文字サイズを大きく */
+      font-size: 20px;
+      margin: 0;
+    }
+
+    form {
+      width: 100%; /* ← 追加 */
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    input[type="text"], input[type="date"] {
+      width: 100%;
+      padding: 16px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 20px;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+      font-size: 20px;
     }
 
     h1 {
