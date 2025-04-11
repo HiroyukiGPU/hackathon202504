@@ -2,36 +2,56 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>〇〇病院 - 予約ページ</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Arial", sans-serif;
       text-align: center;
-      padding: 50px;
+      padding: 40px 20px;
       background-color: #f4f4f4;
     }
+
     h1 {
       color: #333;
+      font-size: 2em;
     }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
     .reserve-button {
-      padding: 15px 30px;
-      font-size: 18px;
+      padding: 20px 40px;
+      font-size: 1.5em;
       background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
       transition: background-color 0.3s;
+      width: 90%;
+      max-width: 400px;
     }
+
     .reserve-button:hover {
       background-color: #0056b3;
+    }
+
+    @media (min-width: 600px) {
+      .reserve-button {
+        font-size: 1.2em;
+        padding: 15px 30px;
+        width: auto;
+      }
     }
   </style>
 </head>
 <body>
   <h1>〇〇病院</h1>
   <p>ご予約は下のボタンから</p>
-  <a href="https://example.com/reserve">
+  <a href=patient.html>
     <button class="reserve-button">予約する</button>
   </a>
 </body>
