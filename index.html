@@ -6,87 +6,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>症状伝えるくん - 受付ページ</title>
   <style>
-    /* アニメーションのkeyframes定義 */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    /* アニメーション keyframes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-@keyframes buttonPop {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+    @keyframes buttonPop {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
 
-@keyframes shimmer {
-  100% {
-    transform: translateX(100%);
-  }
-}
+    @keyframes shimmer {
+      100% {
+        transform: translateX(100%);
+      }
+    }
 
-/* ページ登場アニメーション */
-body {
-  animation: fadeInUp 1s ease-out forwards;
-}
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-/* ボタンの登場アニメーション */
-.reserve-button {
-  animation: buttonPop 0.8s ease-out;
-  animation-delay: 0.4s;
-  animation-fill-mode: both;
-  position: relative;
-  overflow: hidden;
-}
-
-/* 光のスライドアニメーション */
-.reserve-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
-  transform: skewX(-20deg);
-  z-index: 0;
-}
-
-.reserve-button:hover::before {
-  animation: shimmer 0.8s forwards;
-}
-
-    
+    /* 背景と中央寄せ */
     body {
-  background: linear-gradient(-45deg, #f4f4f4, #e0e0e0, #f4f4f4);
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(-45deg, #f4f4f4, #e0e0e0, #f4f4f4);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      font-family: "Arial", sans-serif;
+      text-align: center;
+      animation: fadeInUp 1s ease-out forwards;
+    }
 
     h1 {
       color: #333;
-      font-size: 2em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
     }
 
     p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
+      font-size: 1.4em;
+      margin-bottom: 40px;
     }
 
     .reserve-button {
@@ -98,12 +79,34 @@ body {
       border-radius: 12px;
       cursor: pointer;
       transition: background-color 0.3s;
+      position: relative;
+      overflow: hidden;
+      animation: buttonPop 0.8s ease-out;
+      animation-delay: 0.4s;
+      animation-fill-mode: both;
+      margin: 10px;
       width: 90%;
       max-width: 400px;
     }
 
     .reserve-button:hover {
       background-color: #0056b3;
+    }
+
+    .reserve-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+      transform: skewX(-20deg);
+      z-index: 0;
+    }
+
+    .reserve-button:hover::before {
+      animation: shimmer 0.8s forwards;
     }
 
     @media (min-width: 600px) {
@@ -118,12 +121,10 @@ body {
 <body>
   <h1>症状伝えるくん</h1>
   <p>受付は下のボタンから</p>
-  <a href=patient.html>
+  <a href="patient.html">
     <button class="reserve-button">受付する</button>
   </a>
-  <br>
-  <br>
-  <a href=carte.html>
+  <a href="carte.html">
     <button class="reserve-button">医療従事者用</button>
   </a>
 </body>
