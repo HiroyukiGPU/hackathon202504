@@ -1,11 +1,192 @@
 <!DOCTYPE html>
-
+<html lang="ja">
 <head>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>患者情報フォーム</title>
   <style>
-    
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .geo-btn {
+      margin-top: 5px;
+      padding: 8px 12px;
+      font-size: 14px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .geo-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .image-item {
+      position: relative;
+      text-align: center;
+    }
+
+    .image-item input[type="checkbox"] {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      transform: scale(1.5);
+    }
+
+    .image-item img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .image-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .submit-btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
   </style>
-  <body>
-  
-  </body>
 </head>
+<body>
+  <h1>患者情報入力フォーム</h1>
+  <form>
+    <label for="name">名前</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="address">住所</label>
+    <input type="text" id="address" name="address" placeholder="例：徳島県神山町…" />
+    <button type="button" class="geo-btn" onclick="getLocation()">現在地を入力</button>
+
+    <label for="dob">生年月日</label>
+    <input type="date" id="dob" name="dob" required />
+
+    <label>症状を選択してください（複数選択可）</label>
+    <div class="image-grid">
+      <!-- 01〜08.png を直接表示 -->
+      <div class="image-item">
+        <input type="checkbox" id="img01" name="symptoms" value="01">
+        <label for="img01">
+          <img src="01.png" alt="01" />
+        </label>
+      </div>
+      <div class="image-item">
+        <input type="checkbox" id="img02" name="symptoms" value="02">
+        <label for="img02">
+          <img src="02.png" alt="02" />
+        </label>
+      </div>
+      <div class="image-item">
+        <input type="checkbox" id="img03" name="symptoms" value="03">
+        <label for="img03">
+          <img src="03.png" alt="03" />
+        </label>
+      </div>
+      <div class="image-item">
+        <input type="checkbox" id="img04" name="symptoms" value="04">
+        <label for="img04">
+          <img src="04.png" alt="04" />
+        </label>
+      </div>
+      <div class="image-item">
+        <input type="checkbox" id="img05" name="symptoms" value="05">
+        <label for="img05">
+          <img src="05.png" alt="05" />
+        </label>
+      </div>
+      <div class="image-item">
+        <input type="checkbox" id="img06" name="symptoms" value="06">
+        <label for="img06">
+          <img src="06.png" alt="06" />
+        </label>
+      </div>
+      <div class="image-item">
+        <input type="checkbox" id="img07" name="symptoms" value="07">
+        <label for="img07">
+          <img src="07.png" alt="07" />
+        </label>
+      </div>
+      <div class="image-item">
+        <input type="checkbox" id="img08" name="symptoms" value="08">
+        <label for="img08">
+          <img src="08.png" alt="08" />
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn">送信する</button>
+  </form>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+      } else {
+        alert("このブラウザでは現在地取得がサポートされていません。");
+      }
+
+      function success(position) {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        document.getElementById("address").value = `緯度: ${lat.toFixed(5)}, 経度: ${lng.toFixed(5)}`;
+      }
+
+      function error(err) {
+        alert("現在地を取得できませんでした：" + err.message);
+      }
+    }
+  </script>
+</body>
+</html>
